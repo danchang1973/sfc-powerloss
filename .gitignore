@@ -55,3 +55,1551 @@ __history/
 
 # Castalia statistics file
 *.stat
+
+unit pUnit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ADODB, StdCtrls, Grids, DBGrids, OleServer, ExcelXP, jpeg,
+  ExtCtrls, ComCtrls;
+
+type
+  TForm1 = class(TForm)
+    Edit1: TEdit;
+    Button1: TButton;
+    Label1: TLabel;
+    Label11: TLabel;
+    Edit2: TEdit;
+    Button5: TButton;
+    Edit3: TEdit;
+    Label14: TLabel;
+    Label21: TLabel;
+    Edit4: TEdit;
+    Label22: TLabel;
+    Edit5: TEdit;
+    Button8: TButton;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label27: TLabel;
+    Label28: TLabel;
+    Label29: TLabel;
+    Label30: TLabel;
+    Image1: TImage;
+    Button7: TButton;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    StringGrid1: TStringGrid;
+    Label40: TLabel;
+    Label41: TLabel;
+    ExcelApplication1: TExcelApplication;
+    ADOQuery5: TADOQuery;
+    ADOQuery6: TADOQuery;
+    DataSource4: TDataSource;
+    Timer1: TTimer;
+    ADOConnection1: TADOConnection;
+    ADOQuery4: TADOQuery;
+    ADOQuery7: TADOQuery;
+    ADOQuery9: TADOQuery;
+    ADOQuery2: TADOQuery;
+    DataSource1: TDataSource;
+    DataSource2: TDataSource;
+    ADOQuery3: TADOQuery;
+    DataSource3: TDataSource;
+    ADOConnection2: TADOConnection;
+    ADOQuery8: TADOQuery;
+    ADOQuery1: TADOQuery;
+    ProgressBar1: TProgressBar;
+    Button6: TButton;
+    DBGrid1: TDBGrid;
+    Label2: TLabel;
+    Label8: TLabel;
+    Label34: TLabel;
+    Button2: TButton;
+    Label4: TLabel;
+    DBGrid2: TDBGrid;
+    Label3: TLabel;
+    Label10: TLabel;
+    Label13: TLabel;
+    Label20: TLabel;
+    Label16: TLabel;
+    Label18: TLabel;
+    Label5: TLabel;
+    Label39: TLabel;
+    Button3: TButton;
+    StringGrid2: TStringGrid;
+    Label25: TLabel;
+    Label31: TLabel;
+    Label36: TLabel;
+    DBGrid4: TDBGrid;
+    Label26: TLabel;
+    Label33: TLabel;
+    Label32: TLabel;
+    DBGrid3: TDBGrid;
+    Label6: TLabel;
+    Label38: TLabel;
+    Label37: TLabel;
+    Label19: TLabel;
+    Label12: TLabel;
+    Label9: TLabel;
+    Label17: TLabel;
+    Label15: TLabel;
+    Label35: TLabel;
+    Button4: TButton;
+    Label7: TLabel;
+    TabSheet3: TTabSheet;
+    GroupBox1: TGroupBox;
+    Label80: TLabel;
+    Label81: TLabel;
+    Label82: TLabel;
+    Label83: TLabel;
+    Label64: TLabel;
+    Label65: TLabel;
+    Label87: TLabel;
+    Label86: TLabel;
+    Label85: TLabel;
+    Label84: TLabel;
+    Label88: TLabel;
+    Label89: TLabel;
+    Label90: TLabel;
+    Label91: TLabel;
+    Label66: TLabel;
+    GroupBox2: TGroupBox;
+    Label93: TLabel;
+    Label94: TLabel;
+    Label95: TLabel;
+    Label96: TLabel;
+    Label97: TLabel;
+    Label98: TLabel;
+    Label99: TLabel;
+    Label100: TLabel;
+    Label101: TLabel;
+    Label102: TLabel;
+    Label103: TLabel;
+    Label104: TLabel;
+    Label105: TLabel;
+    Label106: TLabel;
+    Label107: TLabel;
+    GroupBox3: TGroupBox;
+    Label42: TLabel;
+    Label43: TLabel;
+    Label70: TLabel;
+    Label72: TLabel;
+    Label44: TLabel;
+    Label45: TLabel;
+    Label46: TLabel;
+    Label47: TLabel;
+    Label71: TLabel;
+    Label73: TLabel;
+    Label48: TLabel;
+    Label49: TLabel;
+    Label76: TLabel;
+    Label75: TLabel;
+    Label74: TLabel;
+    Label50: TLabel;
+    Label51: TLabel;
+    GroupBox4: TGroupBox;
+    Label52: TLabel;
+    Label56: TLabel;
+    Label63: TLabel;
+    Label67: TLabel;
+    Label57: TLabel;
+    Label61: TLabel;
+    Label59: TLabel;
+    Label68: TLabel;
+    Label62: TLabel;
+    Label60: TLabel;
+    Label77: TLabel;
+    Label78: TLabel;
+    Label79: TLabel;
+    Label58: TLabel;
+    Label69: TLabel;
+    Label92: TLabel;
+    Label108: TLabel;
+    Label109: TLabel;
+    Label110: TLabel;
+    Label111: TLabel;
+    Label112: TLabel;
+    Label113: TLabel;
+    Label114: TLabel;
+    Label115: TLabel;
+    Label116: TLabel;
+    Label117: TLabel;
+    Label118: TLabel;
+    Label119: TLabel;
+    Label120: TLabel;
+    Label121: TLabel;
+    Label122: TLabel;
+    Label123: TLabel;
+    Label124: TLabel;
+    Label125: TLabel;
+    Label126: TLabel;
+    Label127: TLabel;
+    Label128: TLabel;
+    Label129: TLabel;
+    Label130: TLabel;
+    Label131: TLabel;
+    Label132: TLabel;
+    Label133: TLabel;
+    Label134: TLabel;
+    Label135: TLabel;
+    Label136: TLabel;
+    Label137: TLabel;
+    Label138: TLabel;
+    Label139: TLabel;
+    Button9: TButton;
+    Button10: TButton;
+    StringGrid3: TStringGrid;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure StringGrid1Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure StringGrid1DrawCell(Sender: TObject; ACol, ARow: Integer;
+      Rect: TRect; State: TGridDrawState);
+    procedure Button10Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  k:integer;
+  t:array[1..60,1..20] of real;
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  W1,W2,W3,cw,mw,cw1,mw1,p1,p2,pl1,pl2,pl3,on1,on2,on3:real;
+  i,j,ccount,mcount,l,m,n,o,p:integer;
+  s:string;
+begin
+
+  Button7.Click;
+  if Edit1.text='' then exit;
+  if Edit1.text='工單總計' then exit;
+  W1:=0;                                            //  領料 *100
+  W2:=0;                                            //  入庫
+  W3:=0;                                            //  電測
+  if k=0 then k:=1;
+  StringGrid1.Font.Color:=clBlack;
+  
+  StringGrid1.Cells[0,0]:='工單';
+  StringGrid1.Cells[1,0]:='片數';
+//  StringGrid1.Cells[2,0]:='訂單數';
+  StringGrid1.Cells[2,0]:='入庫數';
+  StringGrid1.Cells[3,0]:='需領片數';
+  StringGrid1.Cells[4,0]:='超領片數';
+  StringGrid1.Cells[5,0]:='1/1000';
+  StringGrid1.Cells[6,0]:='領料瓦數';
+  StringGrid1.Cells[7,0]:='入庫瓦數';
+  StringGrid1.Cells[8,0]:='入庫-領料瓦數';
+  StringGrid1.Cells[9,0]:='功率損失(%)';
+  StringGrid1.Cells[10,0]:='電測瓦數';
+  StringGrid1.Cells[11,0]:='電測-領料瓦數';
+  StringGrid1.Cells[12,0]:='功率損失(%)';
+  StringGrid1.Cells[13,0]:='CELL商';
+  StringGrid1.Cells[14,0]:='線別';
+  StringGrid1.Cells[15,0]:='品號';
+  StringGrid1.Cells[16,0]:='已領片數';
+  StringGrid1.Cells[17,0]:='次品片數';
+  StringGrid1.Cells[18,0]:='待報廢片數';
+  StringGrid1.Cells[19,0]:='220W片數';
+  StringGrid1.Cells[20,0]:='225W片數';
+  StringGrid1.Cells[21,0]:='230w片數';
+  StringGrid1.Cells[22,0]:='235W片數';
+  StringGrid1.Cells[23,0]:='240w片數';
+
+  ADOQuery9.close;                                                              //檢查工單數量變更
+  ADOQuery9.SQL.Clear;                                                          // 數量、原工單數量
+  ADOQuery9.SQL.add('Select TA015,TO117');
+  ADOQuery9.sql.add('from MOCTA,MOCTO');
+  ADOQuery9.sql.add('where TA002=:s1');
+  ADOQuery9.sql.add('and TA001=:s2');
+  ADOQuery9.sql.add('and TO002=TA002');
+  ADOQuery9.sql.add('and TO001=TA001');
+  ADOQuery9.Parameters.parambyname('s1').VALUE:=Edit1.text;
+  ADOQuery9.Parameters.parambyname('s2').VALUE:='510';                          // 工單    510
+  ADOQuery9.open;
+  if ADOQuery9.recordcount>0 then
+    begin
+      for i:=1 to ADOQuery9.recordcount do
+        begin
+          if ADOQuery9.fields[0].value<>ADOQuery9.fields[1].value then
+            begin
+              Label40.caption:='工單數量變更';
+            end;
+          ADOQuery9.next;
+        end;
+    end;
+
+  ADOQuery7.close;
+  ADOQuery7.SQL.Clear;
+  ADOQuery7.SQL.add('Select TA002,TA015,TA017,TB004,TB005,TA021,TA006');        //工單號、數量、入庫數量、需領料量、已領料量、線別、品號
+  ADOQuery7.sql.add('from MOCTA,MOCTB');
+//  ADOQuery7.SQL.add('Select TA002,TA015,TD008,TB004,TB005');                  //工單號、數量、訂單數量、需領料量、已領料量
+//  ADOQuery7.sql.add('from MOCTA,MOCTB,COPTD');
+  ADOQuery7.sql.add('where TA001=:s2');
+  ADOQuery7.sql.add('and TA002=:s3');                                           //工單
+  ADOQuery7.sql.add('and TA011>:s5');                                           //已完工
+  ADOQuery7.sql.add('and TA015>:s6');                                           //工單數量>0
+  ADOQuery7.sql.add('and TB001=TA001');
+  ADOQuery7.sql.add('and TB002=TA002');
+  ADOQuery7.sql.add('and TB003>:s7');
+  ADOQuery7.sql.add('and TB003<:s8');
+//  ADOQuery7.sql.add('AND TD001=TA026');
+//  ADOQuery7.sql.add('AND TD002=TA027');
+//  ADOQuery7.sql.add('AND TD003=TA028');
+  ADOQuery7.Parameters.parambyname('s2').VALUE:='510';
+  ADOQuery7.Parameters.parambyname('s3').VALUE:=Edit1.text;
+  ADOQuery7.Parameters.parambyname('s5').VALUE:='3';
+  ADOQuery7.Parameters.parambyname('s6').VALUE:='0';
+  ADOQuery7.Parameters.parambyname('s7').VALUE:='4SC';          // > 4SC
+  ADOQuery7.Parameters.parambyname('s8').VALUE:='4TM';          // < 4TM
+  ADOQuery7.open;
+
+  if ADOQuery7.RecordCount > 0 then
+    begin
+      on3:=0;
+      on1:=ADOQuery7.fields[3].value;                                            //需領片數
+      on2:=ADOQuery7.fields[4].value-ADOQuery7.fields[3].value;                  //超領片數
+      if on2>0 then on3:=on2/on1*1000;
+      if on3>2.3 then
+        begin
+          Label41.caption:='CELL 超領>2.3/1000';
+        end;
+      StringGrid1.Cells[0,k]:=ADOQuery7.fields[0].value;
+      StringGrid1.Cells[1,k]:=ADOQuery7.fields[1].value;
+      StringGrid1.Cells[2,k]:=ADOQuery7.fields[2].value;
+      StringGrid1.Cells[3,k]:=ADOQuery7.fields[3].value;
+      StringGrid1.Cells[4,k]:=floattostrF(on2,ffNumber,7,0);
+      StringGrid1.Cells[5,k]:=floattostrF(on3,ffNumber,7,2);
+    end;
+  StringGrid1.Cells[14,k]:=ADOQuery7.fields[5].value;
+  StringGrid1.Cells[15,k]:=ADOQuery7.fields[6].value;
+  StringGrid1.Cells[16,k]:=ADOQuery7.fields[4].value;
+
+  ADOQuery1.close;
+  ADOQuery1.SQL.Clear;
+  ADOQuery1.SQL.add('select TE001,TE002,TE004,TE010,TE005,TE008');              // 查領退料
+  ADOQuery1.sql.add('from MOCTE');
+  ADOQuery1.sql.add('where TE012=:s1');
+  ADOQuery1.sql.add('and TE011=:s2');
+  ADOQuery1.sql.add('and TE004>:s3');
+  ADOQuery1.sql.add('and TE004<:s4');
+  ADOQuery1.sql.add('and TE019=:s5');
+  ADOQuery1.sql.add('order by TE001');
+  ADOQuery1.Parameters.parambyname('s1').VALUE:=Edit1.text;
+  ADOQuery1.Parameters.parambyname('s2').VALUE:='510';                          // 工單    510
+  ADOQuery1.Parameters.parambyname('s3').VALUE:='4SC';                          // > 4SC
+  ADOQuery1.Parameters.parambyname('s4').VALUE:='4TM';                          // < 4TM
+  ADOQuery1.Parameters.parambyname('s5').VALUE:='Y';                            // 確認碼=Y
+  ADOQuery1.open;
+
+  if ADOQuery1.RecordCount > 0 then
+    begin
+      ADOQuery1.first;
+      for i := 1 to ADOQuery1.RecordCount do
+        begin
+          ccount:=ADOQuery1.fields[4].value;                                     // 領料片數
+          cw:=StrToFloat(copy(ADOQuery1.fields[3].value,0,3));                   // Cell W 數  ---批號
+          if cw<300 then cw:=StrToFloat(copy(ADOQuery1.fields[2].value,6,3));    // Cell W 數  ---品號
+          cw1:=ccount*cw;                                                        // 領料單W數
+          if (copy(ADOQuery1.fields[0].value,0,3)='560') then                    // 退料單        560
+            begin
+               W1:=W1-cw1;                                                       // 領料-退料 W數
+               Label34.caption:='退料次品號不符';
+               ADOQuery8.close;
+               ADOQuery8.SQL.Clear;
+               ADOQuery8.SQL.add('select TE001,TE002,TE004,TE010,TE005,TE008');  // 查領退料
+               ADOQuery8.sql.add('from MOCTE');
+               ADOQuery8.sql.add('where TE012=:s1');
+               ADOQuery8.sql.add('and TE011=:s2');
+               ADOQuery8.sql.add('and TE004>:s3');
+               ADOQuery8.sql.add('and TE004<:s4');
+               ADOQuery8.sql.add('and TE019=:s5');
+               ADOQuery8.sql.add('and TE001<:s6');
+               ADOQuery8.sql.add('and TE010=:s7');
+               ADOQuery8.sql.add('order by TE005');
+               ADOQuery8.Parameters.parambyname('s1').VALUE:=Edit1.text;
+               ADOQuery8.Parameters.parambyname('s2').VALUE:='510';              // 工單    510
+               ADOQuery8.Parameters.parambyname('s3').VALUE:='4SC';              // > 4SC
+               ADOQuery8.Parameters.parambyname('s4').VALUE:='4TM';              // < 4TM
+               ADOQuery8.Parameters.parambyname('s5').VALUE:='Y';                // 確認碼=Y
+               ADOQuery8.Parameters.parambyname('s6').VALUE:='549';              // 領、補料單
+               ADOQuery8.Parameters.parambyname('s7').VALUE:=ADOQuery1.fields[3].value;  // 次料號相同
+               ADOQuery8.open;
+               if ADOQuery8.RecordCount> 0 then
+                 begin
+                   Label34.caption:='退料超量';                                  //檢查數量
+                   for j := 1 to ADOQuery8.RecordCount do                        //檢查次料號
+                     begin
+                       if ADOQuery1.fields[3].value=ADOQuery8.fields[3].value then
+                         begin
+                           if (ADOQuery1.fields[4].value=ADOQuery8.fields[4].value)
+                           or (ADOQuery1.fields[4].value<ADOQuery8.fields[4].value)then
+                               Label34.caption:='';
+                         end;
+                       ADOQuery8.next;
+                     end;
+                 end;
+            end
+          else W1:=W1+cw1;
+          ADOQuery1.next;
+        end;
+    end;
+
+  Label8.caption:=FloatToStr(W1/100);                                           // 領料總W數
+  StringGrid1.Cells[6,k]:=FloatToStr(W1/100);
+  if ADOQuery1.RecordCount=0 then Label34.caption:='CELL 缺領';
+
+  ADOQuery2.close;
+  ADOQuery2.SQL.Clear;
+  ADOQuery2.SQL.add('select TG001,TG002,TG004,TG017,TG013,TG010');              //查半成品入庫
+  ADOQuery2.sql.add('from MOCTG');
+  ADOQuery2.sql.add('where TG015=:s1');
+  ADOQuery2.sql.add('and TG014=:s2');
+  ADOQuery2.sql.add('and TG010=:s3');
+  ADOQuery2.sql.add('and TG022=:s4');
+  ADOQuery2.Parameters.parambyname('s1').VALUE:=Edit1.text;
+  ADOQuery2.Parameters.parambyname('s2').VALUE:='510';                          // 工單    510
+  ADOQuery2.Parameters.parambyname('s3').VALUE:='135';                          // 135 半成品良品倉
+  ADOQuery2.Parameters.parambyname('s4').VALUE:='Y';                            // 確認碼=Y
+  ADOQuery2.open;
+
+  l:=0;
+  m:=0;
+  n:=0;
+  o:=0;
+  p:=0;
+
+  if ADOQuery2.RecordCount > 0 then
+    begin
+      ADOQuery2.first;
+      for i := 1 to ADOQuery2.RecordCount do
+        begin
+          mw:=StrToFloat(copy(ADOQuery2.fields[3].value,3,3));                  //mw 模組W數
+          mw1:=(ADOQuery2.fields[4].value)*mw;                                  //mw1 入庫單 W數
+          W2:=W2+mw1;                                                           //w2 入庫 W數
+          if mw=220 then l:=l+ADOQuery2.fields[4].value;                        //220w總計
+          if mw=225 then m:=m+ADOQuery2.fields[4].value;                        //225w總計
+          if mw=230 then n:=n+ADOQuery2.fields[4].value;                        //230w總計
+          if mw=235 then o:=o+ADOQuery2.fields[4].value;                        //235w總計
+          if mw=240 then p:=p+ADOQuery2.fields[4].value;                        //240w總計
+          ADOQuery2.next;
+        end;
+    end;
+
+  StringGrid1.Cells[19,k]:=inttostr(l);
+  StringGrid1.Cells[20,k]:=inttostr(m);
+  StringGrid1.Cells[21,k]:=inttostr(n);
+  StringGrid1.Cells[22,k]:=inttostr(o);
+  StringGrid1.Cells[23,k]:=inttostr(p);
+
+  Label10.caption:=FloatToStr(W2);
+  StringGrid1.Cells[7,k]:=FloatToStr(W2);
+
+  p1:=W2-(W1/100);                                                              // p1  入庫 - 領料
+  Label13.caption:=floattoStrF(p1,ffNumber,7,2);
+  StringGrid1.Cells[8,k]:=floattoStr(p1);
+
+  pl1:=100;
+  if W1>0 then pl1:=p1/W1*10000;                                                // powerloss %
+  Label20.caption:=floattoStrF(pl1,ffNumber,7,2);
+  if pl1<-3 then
+    begin
+      Label39.caption:='Powerloss >3';
+    end;
+  StringGrid1.Cells[9,k]:=floattoStrF(pl1,ffNumber,7,2);
+
+  IF copy(ADOQuery2.fields[3].value,1,2)='01' then StringGrid1.Cells[13,k]:='01Gintech';
+  IF copy(ADOQuery2.fields[3].value,1,2)='02' then StringGrid1.Cells[13,k]:='02tainergy';
+  IF copy(ADOQuery2.fields[3].value,1,2)='03' then StringGrid1.Cells[13,k]:='03Neosolar';
+  IF copy(ADOQuery2.fields[3].value,1,2)='04' then StringGrid1.Cells[13,k]:='04Mosel';
+  IF copy(ADOQuery2.fields[3].value,1,2)='05' then StringGrid1.Cells[13,k]:='05長生';
+  IF copy(ADOQuery2.fields[3].value,1,2)='06' then StringGrid1.Cells[13,k]:='06Solartech';
+  IF copy(ADOQuery2.fields[3].value,1,2)='07' then StringGrid1.Cells[13,k]:='07DelSolar';
+  IF copy(ADOQuery2.fields[3].value,1,2)='08' then StringGrid1.Cells[13,k]:='08Q-Cell';
+  IF copy(ADOQuery2.fields[3].value,1,2)='09' then StringGrid1.Cells[13,k]:='09TEG';
+  IF copy(ADOQuery2.fields[3].value,1,2)='10' then StringGrid1.Cells[13,k]:='10Unitech';
+  IF copy(ADOQuery2.fields[3].value,1,2)='11' then StringGrid1.Cells[13,k]:='11Motech';
+  IF copy(ADOQuery2.fields[3].value,1,2)='12' then StringGrid1.Cells[13,k]:='12E-Ton';
+  IF copy(ADOQuery2.fields[3].value,1,2)='13' then StringGrid1.Cells[13,k]:='13庚賢';
+  IF copy(ADOQuery2.fields[3].value,1,2)='14' then StringGrid1.Cells[13,k]:='14華昌光伏';
+  IF copy(ADOQuery2.fields[3].value,1,2)='15' then StringGrid1.Cells[13,k]:='15Bosch';
+  IF copy(ADOQuery2.fields[3].value,1,2)='16' then StringGrid1.Cells[13,k]:='16鴻圖工程';
+  IF copy(ADOQuery2.fields[3].value,1,2)='17' then StringGrid1.Cells[13,k]:='17Hitachi';
+
+  ADOQuery3.close;
+  ADOQuery3.SQL.Clear;
+  ADOQuery3.SQL.add('select SerN,RsMxp');                                       // 查 simulater
+  ADOQuery3.sql.add('from Mes,MesRes');
+  ADOQuery3.sql.add('where SerN >:s1');
+  ADOQuery3.sql.add('and SerN <:s2');
+  ADOQuery3.sql.add('and Mes.Id=MesRes.Id');
+  ADOQuery3.sql.add('and Mes.StId=MesRes.StId');
+  ADOQuery3.sql.add('and Mes.OK=1');
+  ADOQuery3.sql.add('order by SerN');
+  ADOQuery3.Parameters.parambyname('s1').VALUE:='W'+copy(Edit1.text,0,10)+'.....';
+  ADOQuery3.Parameters.parambyname('s2').VALUE:='W'+copy(Edit1.text,0,10)+'ZZZZZ';
+  ADOQuery3.open;
+
+  if ADOQuery3.RecordCount > 0 then
+    begin
+      ADOQuery3.first;
+      for i := 1 to ADOQuery3.RecordCount do
+        begin
+          W3:=W3+ADOQuery3.fields[1].value;                                     //w3 電測總 W數
+          ADOQuery3.next;
+        end;
+    end;
+
+  Label9.caption:=floattoStrF(w3,ffNumber,7,2);
+//  StringGrid1.Cells[9,k]:=floattoStrF(w3,ffNumber,7,2);
+  StringGrid1.Cells[10,k]:=floattoStr(w3);
+
+  p2:=W3-(W1/100);                                                              // p2  電測 - 領料
+  Label12.caption:=floattoStrF(p2,ffNumber,7,2);
+  StringGrid1.Cells[11,k]:=floattoStr(p2);
+
+  pl2:=100;
+  if W1>0 then pl2:=p2/W1*10000;                                                // powerloss %
+  Label19.caption:=floattoStrF(pl2,ffNumber,7,2);
+  StringGrid1.Cells[12,k]:=floattoStrF(pl2,ffNumber,7,2);
+  if ADOQuery3.RecordCount<>ADOQuery7.fields[1].value then Label37.caption:='片數不符';
+  if ADOQuery3.RecordCount<>ADOQuery7.fields[1].value then Label38.caption:=inttostr(ADOQuery3.RecordCount);
+  if pl2<-3 then
+    begin
+      Label35.caption:='Powerloss >3';
+    end;
+
+  StringGrid2.Cells[0,0]:='品名';
+  StringGrid2.Cells[1,0]:='超領量';
+  StringGrid2.Cells[2,0]:='超領率 %';
+
+  ADOQuery5.close;
+  ADOQuery5.SQL.Clear;
+  ADOQuery5.SQL.add('Select TB012,TB004,TB005');                                // 查工單單身超領資訊
+  ADOQuery5.sql.add('from MOCTB');
+  ADOQuery5.sql.add('where TB001=:s2');
+  ADOQuery5.sql.add('and TB002=:s3');
+  ADOQuery5.sql.add('and TB004<>TB005');  
+  ADOQuery5.sql.add('order by TB003');
+  ADOQuery5.Parameters.parambyname('s2').VALUE:='510';
+  ADOQuery5.Parameters.parambyname('s3').VALUE:=Edit1.text;
+  ADOQuery5.open;
+  ADOQuery5.first;
+
+  StringGrid2.RowCount:=ADOQuery5.RecordCount+1;
+
+  if ADOQuery5.RecordCount > 1 then
+    begin
+      for i := 1 to ADOQuery5.RecordCount do
+        begin
+          on3:=0;
+          on1:=ADOQuery5.fields[1].value;                                        //需領片數
+          on2:=ADOQuery5.fields[2].value-ADOQuery5.fields[1].value;              //超領片數
+          if on1<>0 then on3:=on2/on1*100;                                       //超領率 1/100
+          if on3>0 then  Label31.caption:='超領';
+          if on3<0 then  Label36.caption:='缺領';
+          StringGrid2.Cells[0,i]:=ADOQuery5.fields[0].value;
+          StringGrid2.Cells[1,i]:=floattostrF(on2,ffNumber,7,2);
+          StringGrid2.Cells[2,i]:=floattostrF(on3,ffNumber,7,2);
+          ADOQuery5.next;
+        end;
+    end;
+
+  ADOQuery6.close;
+  ADOQuery6.SQL.Clear;                                                          //查不良入庫
+  ADOQuery6.SQL.add('select TG002,MC002,TG013,TG010');
+  ADOQuery6.sql.add('from MOCTG,CMSMC');
+  ADOQuery6.sql.add('where TG015=:s1');
+  ADOQuery6.sql.add('and TG014=:s2');
+  ADOQuery6.sql.add('and TG010<>:s3');
+  ADOQuery6.sql.add('and TG022=:s4');
+  ADOQuery6.sql.add('AND TG010=MC001');
+  ADOQuery6.Parameters.parambyname('s1').VALUE:=Edit1.text;
+  ADOQuery6.Parameters.parambyname('s2').VALUE:='510';                          // 工單    510
+  ADOQuery6.Parameters.parambyname('s3').VALUE:='135';                          // 135 半成品良品倉
+  ADOQuery6.Parameters.parambyname('s4').VALUE:='Y';                            // 確認碼=Y
+  ADOQuery6.open;                                                               
+
+  l:=0;                                                                         //不良品數
+  m:=0;                                                                         //報廢品數
+  if ADOQuery6.recordcount>0 then
+    begin
+      for i:=1 to ADOQuery6.recordcount do
+        begin
+          if copy(ADOQuery6.fields[3].value,0,3)='151' then
+            begin
+              Label32.caption:='不良品';
+              l:=l+ADOQuery6.fields[2].value;
+            end;
+          if copy(ADOQuery6.fields[3].value,0,3)='170' then
+            begin
+              Label33.caption:='報廢品';
+              m:=m+ADOQuery6.fields[2].value;
+            end;
+          ADOQuery6.next;
+        end;
+    end;
+
+  StringGrid1.Cells[17,k]:=inttostr(l);
+  StringGrid1.Cells[18,k]:=inttostr(m);
+
+  for j:=1 to 11 do
+    begin
+      t[1,j]:=t[1,j]+strtofloat(StringGrid1.Cells[j,k]);                //t[1.X]總計
+    end;
+  for j:=13 to 20 do
+    begin
+      t[1,j]:=t[1,j]+strtofloat(StringGrid1.Cells[j+3,k]);                //t[1.X]總計
+    end;
+{
+  t[1,13]:=t[1,13]+strtofloat(StringGrid1.Cells[16,k]);                 //已領用料總計
+  t[1,14]:=t[1,14]+strtofloat(StringGrid1.Cells[17,k]);                 //次品總計
+  t[1,15]:=t[1,15]+strtofloat(StringGrid1.Cells[18,k]);                 //報廢總計
+}
+  j:=strtoint(copy(StringGrid1.Cells[14,k],0,2));                       //線別總計
+  for l:=1 to 11 do
+    begin
+      t[10+j,l]:=t[10+j,l]+strtofloat(StringGrid1.Cells[l,k]);
+    end;
+  t[10+j,13]:=t[10+j,13]+strtofloat(StringGrid1.Cells[16,k]);           //已領用料總計
+  t[10+j,14]:=t[10+j,14]+strtofloat(StringGrid1.Cells[17,k]);           //次品線別總計
+  t[10+j,15]:=t[10+j,15]+strtofloat(StringGrid1.Cells[18,k]);           //報廢線別總計
+
+  j:=strtoint(copy(StringGrid1.Cells[13,k],0,2));                       //cell 商總計
+  for l:=1 to 11 do
+    begin
+      t[20+j,l]:=t[20+j,l]+strtofloat(StringGrid1.Cells[l,k]);
+    end;
+  t[20+j,13]:=t[20+j,13]+strtofloat(StringGrid1.Cells[16,k]);
+
+  if copy(StringGrid1.Cells[15,k],7,3)='220' then j:=1;                 //220w總計
+  if copy(StringGrid1.Cells[15,k],7,3)='225' then j:=2;                 //225w總計
+  if copy(StringGrid1.Cells[15,k],7,3)='230' then j:=3;                 //230w總計
+  if copy(StringGrid1.Cells[15,k],7,3)='235' then j:=4;                 //235w總計
+  if copy(StringGrid1.Cells[15,k],7,3)='240' then j:=5;                 //240w總計
+  for l:=1 to 11 do
+    begin
+      t[40+j,l]:=t[40+j,l]+strtofloat(StringGrid1.Cells[l,k]);
+    end;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+VAR
+  asheet:variant;
+  i,j,k:INTEGER;
+begin
+  ExcelApplication1.Visible[0]:=true;
+  ExcelApplication1.Workbooks.Add(xlwbatworksheet,0);
+  asheet:= ExcelApplication1.Worksheets.Item[1];
+  ADOQuery1.first;
+  asheet.cells[1,1].value:='單別';
+  asheet.cells[1,2].value:='單號';
+  asheet.cells[1,3].value:='品號';
+  asheet.cells[1,4].value:='次品號';
+  asheet.cells[1,5].value:='數量';
+
+  FOR i := 1 to ADOQuery1.RecordCount do
+    begin
+      for j := 1 to 5  do
+        begin
+          asheet.cells[i+1,j].value:=ADOQuery1.Fields[j-1].Value;
+        end;
+      ADOQuery1.Next;
+    end;
+
+{   ExcelApplication1.Workbooks.Add(xlwbatworksheet,0);
+ asheet:= ExcelApplication1.Worksheets.Item[2];
+  ADOQuery2.first;
+  asheet.cells[1,1].value:='單別';
+  asheet.cells[1,2].value:='單號';
+  asheet.cells[1,3].value:='品號';
+  asheet.cells[1,4].value:='次品號';
+  asheet.cells[1,5].value:='數量';
+
+  FOR i := 1 to ADOQuery2.RecordCount do
+    begin
+      for j := 1 to 5  do
+        begin
+          asheet.cells[i+1,j].value:=ADOQuery2.Fields[j-1].Value;
+        end;
+      ADOQuery2.Next;
+    end;
+
+  ExcelApplication1.Workbooks.Add(xlwbatworksheet,0);
+  asheet:= ExcelApplication1.Worksheets.Item[3];
+  ADOQuery3.first;
+  asheet.cells[1,1].value:='序號';
+  asheet.cells[1,2].value:='W';
+  FOR i := 1 to ADOQuery3.RecordCount do
+    begin
+      for j := 1 to 2  do
+        begin
+          asheet.cells[i+1,j].value:=ADOQuery3.Fields[j-1].Value;
+        end;
+      ADOQuery3.Next;
+    end;
+}
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+var
+  i,j,l,on1,on2:integer;
+  on3:real;
+begin
+
+  for i:=1 to 60 do
+    begin
+      for j:= 1 to 20 do
+        begin
+          t[i,j]:=0;
+        end;
+    end;
+    
+  if Edit2.text='' then exit;
+  if Edit3.text='' then exit;
+  ADOQuery4.close;
+  ADOQuery4.SQL.Clear;
+  ADOQuery4.SQL.add('Select TA002');                                            //工單號
+  ADOQuery4.sql.add('from MOCTA');                                              //工單區間
+  ADOQuery4.sql.add('where TA001=:s2');
+  ADOQuery4.sql.add('and TA002>=:s3');
+  ADOQuery4.sql.add('and TA002<=:s4');
+  ADOQuery4.sql.add('and TA011>:s5');                                            //已完工
+  ADOQuery4.sql.add('and TA015>:s6');
+  ADOQuery4.sql.add('order by TA002');
+  ADOQuery4.Parameters.parambyname('s2').VALUE:='510';
+  ADOQuery4.Parameters.parambyname('s3').VALUE:=Edit2.text;
+  ADOQuery4.Parameters.parambyname('s4').VALUE:=Edit3.text;
+  ADOQuery4.Parameters.parambyname('s5').VALUE:='3';
+  ADOQuery4.Parameters.parambyname('s6').VALUE:='0';
+  ADOQuery4.open;
+  ADOQuery4.first;
+
+  StringGrid1.RowCount:=ADOQuery4.RecordCount+3;
+  ProgressBar1.Max:=ADOQuery4.RecordCount*10;
+
+  for i:=1 to StringGrid1.RowCount do
+    begin
+      for j:= 1 to 18 do
+        begin
+          StringGrid1.Cells[j-1,i]:='';
+        end;
+    end;
+
+  if ADOQuery4.RecordCount > 1 then
+    begin
+      for i := 1 to ADOQuery4.RecordCount do
+        begin
+          Edit1.text:=ADOQuery4.Fields[0].Value;
+          k:=i;
+          Button1.Click;
+          ProgressBar1.position:=i*10;
+          ADOQuery4.next;
+        end;
+    end;
+
+  Label24.caption:=inttoStr(ADOQuery4.RecordCount);
+  Label46.caption:=inttoStr(ADOQuery4.RecordCount);  
+  StringGrid1.Row:=ADOQuery4.RecordCount;
+  
+  ADOQuery4.close;
+  ADOQuery4.SQL.Clear;
+  ADOQuery4.SQL.add('Select TA002');                                            //未結案工單數量
+  ADOQuery4.sql.add('from MOCTA');
+  ADOQuery4.sql.add('where TA001=:s2');
+  ADOQuery4.sql.add('and TA011<:s3');                                           //未完工
+  ADOQuery4.sql.add('and TA015>:s6');                                           //工單數量>0
+  ADOQuery4.sql.add('and TA013=:s7');
+  ADOQuery4.sql.add('order by TA002');
+  ADOQuery4.Parameters.parambyname('s2').VALUE:='510';
+  ADOQuery4.Parameters.parambyname('s3').VALUE:='4';
+  ADOQuery4.Parameters.parambyname('s6').VALUE:='0';
+  ADOQuery4.Parameters.parambyname('s7').VALUE:='Y';
+  ADOQuery4.open;
+  Label28.caption:=inttoStr(ADOQuery4.RecordCount);
+
+  for i:=1 to StringGrid2.RowCount do
+    begin
+      for j:= 1 to 3 do
+        begin
+          StringGrid2.Cells[j-1,i]:='';
+        end;
+    end;
+  StringGrid2.RowCount:=2;
+
+  Label30.caption:=' ';
+  ADOQuery1.close;
+  ADOQuery2.close;
+  ADOQuery3.close;
+  ADOQuery4.close;
+  ADOQuery5.close;
+  ADOQuery6.close;
+  ADOQuery7.close;
+  Button7.Click;
+  Button10.Click;
+  ProgressBar1.position:=0;
+end;
+
+procedure TForm1.StringGrid1Click(Sender: TObject);
+begin
+  k:=StringGrid1.Row;
+  Edit1.text:=StringGrid1.Cells[0,k];
+  Button1.Click;
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+VAR
+  asheet:variant;
+  i,j:INTEGER;
+begin
+  ExcelApplication1.Visible[0]:=true;
+  ExcelApplication1.Workbooks.Add(xlwbatworksheet,0);
+  asheet:= ExcelApplication1.Worksheets.Item[1];
+  FOR i := 0 to StringGrid1.RowCount do
+    begin
+      for j := 0 to StringGrid1.colCount  do
+        begin
+          asheet.cells[i+1,j+1].value:=StringGrid1.Cells[j,i];
+        end;
+    end;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+VAR
+  asheet:variant;
+  i,j,k:INTEGER;
+begin
+  ExcelApplication1.Visible[0]:=true;
+  ExcelApplication1.Workbooks.Add(xlwbatworksheet,0);
+  asheet:= ExcelApplication1.Worksheets.Item[1];
+  ADOQuery2.first;
+  asheet.cells[1,1].value:='單別';
+  asheet.cells[1,2].value:='單號';
+  asheet.cells[1,3].value:='品號';
+  asheet.cells[1,4].value:='次品號';
+  asheet.cells[1,5].value:='數量';
+
+  FOR i := 1 to ADOQuery2.RecordCount do
+    begin
+      for j := 1 to 5  do
+        begin
+          asheet.cells[i+1,j].value:=ADOQuery2.Fields[j-1].Value;
+        end;
+      ADOQuery2.Next;
+    end;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+VAR
+  asheet:variant;
+  i,j,k:INTEGER;
+begin
+  ExcelApplication1.Visible[0]:=true;
+  ExcelApplication1.Workbooks.Add(xlwbatworksheet,0);
+  asheet:= ExcelApplication1.Worksheets.Item[1];
+  ADOQuery3.first;
+  asheet.cells[1,1].value:='序號';
+  asheet.cells[1,2].value:='W';
+  FOR i := 1 to ADOQuery3.RecordCount do
+    begin
+      for j := 1 to 2  do
+        begin
+          asheet.cells[i+1,j].value:=ADOQuery3.Fields[j-1].Value;
+        end;
+      ADOQuery3.Next;
+    end;
+end;
+
+procedure TForm1.Button8Click(Sender: TObject);
+var
+  i,j,l,on1,on2:integer;
+  on3:real;
+begin
+
+  for i:=1 to 60 do
+    begin
+      for j:= 1 to 20 do
+        begin
+          t[i,j]:=0;
+        end;
+    end;
+
+  if Edit4.text='' then exit;
+  if Edit5.text='' then exit;
+
+  Label48.font.color:=clWindowText;
+  Label49.font.color:=clWindowText;
+  Label57.font.color:=clWindowText;
+  Label59.font.color:=clWindowText;
+  Label61.font.color:=clWindowText;
+  Label68.font.color:=clWindowText;
+
+  ADOQuery4.close;
+  ADOQuery4.SQL.Clear;
+  ADOQuery4.SQL.add('Select TA002');                                            //工單號
+  ADOQuery4.sql.add('from MOCTA');
+  ADOQuery4.sql.add('where TA001=:s2');
+  ADOQuery4.sql.add('and TA014>=:s3');                                          //工單區間
+  ADOQuery4.sql.add('and TA014<=:s4');
+  ADOQuery4.sql.add('and TA011>:s5');                                           //已完工
+  ADOQuery4.sql.add('and TA015>:s6');                                           //工單數量>0
+  ADOQuery4.sql.add('order by TA002');
+  ADOQuery4.Parameters.parambyname('s2').VALUE:='510';
+  ADOQuery4.Parameters.parambyname('s3').VALUE:=Edit4.text;
+  ADOQuery4.Parameters.parambyname('s4').VALUE:=Edit5.text;
+  ADOQuery4.Parameters.parambyname('s5').VALUE:='3';
+  ADOQuery4.Parameters.parambyname('s6').VALUE:='0';
+  ADOQuery4.open;
+  ADOQuery4.first;
+  ProgressBar1.Max:=ADOQuery4.RecordCount*10;
+  StringGrid1.RowCount:=ADOQuery4.RecordCount+3;
+  for i:=1 to StringGrid1.RowCount do
+    begin
+      for j:= 1 to 18 do
+        begin
+          StringGrid1.Cells[j-1,i]:='';
+        end;
+    end;
+
+  if ADOQuery4.RecordCount > 1 then
+    begin
+      for i := 1 to ADOQuery4.RecordCount do
+        begin
+          Edit1.text:=ADOQuery4.Fields[0].Value;
+          k:=i;
+          Button1.Click;
+          ProgressBar1.position:=i*10;
+{
+          for j:=1 to 11 do
+            begin
+              t[1,j]:=t[1,j]+strtofloat(StringGrid1.Cells[j,k]);                //t[1.X]總計
+            end;
+          t[1,13]:=t[1,13]+strtofloat(StringGrid1.Cells[16,k]);                 //已領用料總計
+          t[1,14]:=t[1,14]+strtofloat(StringGrid1.Cells[17,k]);                 //次品總計
+          t[1,15]:=t[1,15]+strtofloat(StringGrid1.Cells[18,k]);                 //報廢總計
+
+          j:=strtoint(copy(StringGrid1.Cells[14,k],0,2));                       //線別總計
+          for l:=1 to 11 do
+            begin
+              t[10+j,l]:=t[10+j,l]+strtofloat(StringGrid1.Cells[l,k]);
+            end;
+          t[10+j,13]:=t[10+j,13]+strtofloat(StringGrid1.Cells[16,k]);           //已領用料總計
+          t[10+j,14]:=t[10+j,14]+strtofloat(StringGrid1.Cells[17,k]);           //次品線別總計
+          t[10+j,15]:=t[10+j,15]+strtofloat(StringGrid1.Cells[18,k]);           //報廢線別總計
+
+          j:=strtoint(copy(StringGrid1.Cells[13,k],0,2));                       //cell 商總計
+          for l:=1 to 11 do
+            begin
+              t[20+j,l]:=t[20+j,l]+strtofloat(StringGrid1.Cells[l,k]);
+            end;
+          t[20+j,13]:=t[20+j,13]+strtofloat(StringGrid1.Cells[16,k]);
+
+          if copy(StringGrid1.Cells[15,k],7,3)='220' then j:=1;                 //220w總計
+          if copy(StringGrid1.Cells[15,k],7,3)='225' then j:=2;                 //225w總計
+          if copy(StringGrid1.Cells[15,k],7,3)='230' then j:=3;                 //230w總計
+          if copy(StringGrid1.Cells[15,k],7,3)='235' then j:=4;                 //235w總計
+          if copy(StringGrid1.Cells[15,k],7,3)='240' then j:=5;                 //240w總計
+            for l:=1 to 11 do
+              begin
+                t[40+j,l]:=t[40+j,l]+strtofloat(StringGrid1.Cells[l,k]);
+              end;
+}
+          ADOQuery4.next;
+        end;
+    end;
+  Label24.caption:=inttoStr(ADOQuery4.RecordCount);
+  StringGrid1.Row:=ADOQuery4.RecordCount;
+  Label46.caption:=inttoStr(ADOQuery4.RecordCount);
+
+  ADOQuery4.close;
+  ADOQuery4.SQL.Clear;
+  ADOQuery4.SQL.add('Select TA002');                                            //未結案工單數量
+  ADOQuery4.sql.add('from MOCTA');
+  ADOQuery4.sql.add('where TA001=:s2');
+  ADOQuery4.sql.add('and TA011<:s3');                                           //未完工
+  ADOQuery4.sql.add('and TA015>:s6');                                           //工單數量>0
+  ADOQuery4.sql.add('and TA013=:s7');
+  ADOQuery4.sql.add('order by TA002');
+  ADOQuery4.Parameters.parambyname('s2').VALUE:='510';
+  ADOQuery4.Parameters.parambyname('s3').VALUE:='4';
+  ADOQuery4.Parameters.parambyname('s6').VALUE:='0';
+  ADOQuery4.Parameters.parambyname('s7').VALUE:='Y';
+  ADOQuery4.open;
+  Label28.caption:=inttoStr(ADOQuery4.RecordCount);
+
+  ADOQuery4.close;
+  ADOQuery4.SQL.Clear;
+  ADOQuery4.SQL.add('Select TA002');                                            //工單號
+  ADOQuery4.sql.add('from MOCTA');
+  ADOQuery4.sql.add('where TA001=:s2');
+  ADOQuery4.sql.add('and TA003>=:s3');                                          //工單區間
+  ADOQuery4.sql.add('and TA003<=:s4');
+  ADOQuery4.sql.add('and TA015>:s6');                                           //工單數量>0
+  ADOQuery4.sql.add('and TA013=:s7');
+  ADOQuery4.sql.add('order by TA002');
+  ADOQuery4.Parameters.parambyname('s2').VALUE:='510';
+  ADOQuery4.Parameters.parambyname('s3').VALUE:=Edit4.text;
+  ADOQuery4.Parameters.parambyname('s4').VALUE:=Edit5.text;
+  ADOQuery4.Parameters.parambyname('s6').VALUE:='0';
+  ADOQuery4.Parameters.parambyname('s7').VALUE:='Y';
+  ADOQuery4.open;
+  Label30.caption:=inttoStr(ADOQuery4.RecordCount);
+{
+  for I:=1 to 60 do                                                             //重算 cell 超領、power loss
+    begin
+      if t[i,3]>0 then t[i,5]:=t[i,4]/t[i,3]*1000;
+      if t[i,6]>0 then t[i,9]:=t[i,8]/t[i,6]*100;
+      if t[i,6]>0 then t[i,12]:=t[i,11]/t[i,6]*100;
+    end;
+
+  StringGrid3.RowCount:=3;
+  StringGrid4.RowCount:=10;
+  StringGrid5.RowCount:=10;
+  
+  StringGrid3.Cells[1,0]:='工單模組數';
+  StringGrid3.Cells[2,0]:='入庫模組數';
+  StringGrid3.Cells[3,0]:='需領CELL片數';
+  StringGrid3.Cells[4,0]:='超領CELL片數';
+  StringGrid3.Cells[5,0]:='1/1000';
+  StringGrid3.Cells[6,0]:='領料瓦數';
+  StringGrid3.Cells[7,0]:='入庫瓦數';
+  StringGrid3.Cells[8,0]:='入庫-領料瓦數';
+  StringGrid3.Cells[9,0]:='功率損失(%)';
+  StringGrid3.Cells[10,0]:='電測瓦數';
+  StringGrid3.Cells[11,0]:='電測-領料瓦數';
+  StringGrid3.Cells[12,0]:='功率損失(%)';
+  StringGrid3.Cells[13,0]:='不良數';
+  StringGrid3.Cells[14,0]:='報廢數';
+
+  StringGrid4.Cells[1,0]:='工單模組數';
+  StringGrid4.Cells[2,0]:='入庫模組數';
+  StringGrid4.Cells[3,0]:='需領CELL片數';
+  StringGrid4.Cells[4,0]:='超領CELL片數';
+  StringGrid4.Cells[5,0]:='1/1000';
+  StringGrid4.Cells[6,0]:='領料瓦數';
+  StringGrid4.Cells[7,0]:='入庫瓦數';
+  StringGrid4.Cells[8,0]:='入庫-領料瓦數';
+  StringGrid4.Cells[9,0]:='功率損失(%)';
+  StringGrid4.Cells[10,0]:='電測瓦數';
+  StringGrid4.Cells[11,0]:='電測-領料瓦數';
+  StringGrid4.Cells[12,0]:='功率損失(%)';
+
+  StringGrid5.Cells[1,0]:='工單模組數';
+  StringGrid5.Cells[2,0]:='入庫模組數';
+  StringGrid5.Cells[3,0]:='需領CELL片數';
+  StringGrid5.Cells[4,0]:='超領CELL片數';
+  StringGrid5.Cells[5,0]:='1/1000';
+  StringGrid5.Cells[6,0]:='領料瓦數';
+  StringGrid5.Cells[7,0]:='入庫瓦數';
+  StringGrid5.Cells[8,0]:='入庫-領料瓦數';
+  StringGrid5.Cells[9,0]:='功率損失(%)';
+  StringGrid5.Cells[10,0]:='電測瓦數';
+  StringGrid5.Cells[11,0]:='電測-領料瓦數';
+  StringGrid5.Cells[12,0]:='功率損失(%)';
+
+  StringGrid3.Cells[0,1]:='1線工單總計';
+  StringGrid3.Cells[0,2]:='2線工單總計';
+
+  StringGrid4.Cells[0,1]:='Gintech總計';
+  StringGrid4.Cells[0,2]:='tainergy總計';
+  StringGrid4.Cells[0,3]:='Neosolar總計';
+  StringGrid4.Cells[0,4]:='Mosel總計';
+  StringGrid4.Cells[0,5]:='長生總計';
+  StringGrid4.Cells[0,6]:='Solartech總計';
+  StringGrid4.Cells[0,7]:='DelSolar總計';
+  StringGrid4.Cells[0,8]:='Q-Cell總計';
+  StringGrid4.Cells[0,9]:='TEG總計';
+  StringGrid4.Cells[0,10]:='Unitech總計';
+
+  StringGrid5.Cells[0,1]:='220W總計';
+  StringGrid5.Cells[0,2]:='225W總計';
+  StringGrid5.Cells[0,3]:='230W總計';
+  StringGrid5.Cells[0,4]:='235W總計';
+  StringGrid5.Cells[0,5]:='240W總計';
+
+
+  StringGrid1.Cells[0,k+1]:='工單總計';
+  for i:= 1 to 4 do
+    begin
+      StringGrid1.Cells[i,k+1]:=floattostrF(t[1,i],ffNumber,7,0);
+
+      StringGrid3.Cells[i,1]:=floattostrF(t[11,i],ffNumber,7,0);
+      StringGrid3.Cells[i,2]:=floattostrF(t[12,i],ffNumber,7,0);
+      for j:=1 to 10 do
+        begin
+          if t[j+20,i]<>0 then StringGrid4.Cells[i,j]:=floattostrF(t[j+20,i],ffNumber,7,0);
+          if t[j+40,i]<>0 then StringGrid5.Cells[i,j]:=floattostrF(t[j+40,i],ffNumber,7,0);
+        end;
+
+    end;
+
+  for i:= 5 to 12 do
+    begin
+      StringGrid1.Cells[i,k+1]:=floattostrF(t[1,i],ffNumber,7,2);
+
+      StringGrid3.Cells[i,1]:=floattostrF(t[11,i],ffNumber,7,2);
+      StringGrid3.Cells[i,2]:=floattostrF(t[12,i],ffNumber,7,2);
+      for j:=1 to 10 do
+        begin
+          if t[j+20,i]<>0 then StringGrid4.Cells[i,j]:=floattostrF(t[j+20,i],ffNumber,7,2);
+          if t[j+40,i]<>0 then StringGrid5.Cells[i,j]:=floattostrF(t[j+40,i],ffNumber,7,2);
+        end;
+
+    end;
+  StringGrid1.Cells[16,k+1]:=floattostrF(t[1,13],ffNumber,7,0);
+  StringGrid1.Cells[17,k+1]:=floattostrF(t[1,14],ffNumber,7,0);
+  StringGrid1.Cells[18,k+1]:=floattostrF(t[1,15],ffNumber,7,0);
+
+  StringGrid3.Cells[13,1]:=floattostrF(t[11,14],ffNumber,7,0);
+  StringGrid3.Cells[13,2]:=floattostrF(t[12,14],ffNumber,7,0);
+  StringGrid3.Cells[14,1]:=floattostrF(t[11,15],ffNumber,7,0);
+  StringGrid3.Cells[14,2]:=floattostrF(t[12,15],ffNumber,7,0);
+
+
+
+  Label47.caption:=floattostrF(t[1,2],ffNumber,7,0);
+  Label71.caption:=floattostrF(t[1,6],ffNumber,7,0);
+  Label73.caption:=floattostrF(t[1,7],ffNumber,7,0);
+  Label48.caption:=floattostrF(t[1,5],ffNumber,7,2);
+  Label116.caption:=floattostrF(t[1,13],ffNumber,7,0);
+  Label118.caption:=floattostrF(t[1,4],ffNumber,7,0);
+
+  if t[1,5]>2.3 then Label48.font.color:=clRed;
+  Label49.caption:=floattostrF(t[1,9],ffNumber,7,2);
+  if t[1,9]<-3 then Label49.font.color:=clRed;
+  Label57.caption:=floattostrF(t[11,5],ffNumber,7,2);
+  if t[11,5]>2.3 then Label57.font.color:=clRed;
+  Label61.caption:=floattostrF(t[12,5],ffNumber,7,2);
+  if t[12,5]>2.3 then Label61.font.color:=clRed;
+  Label59.caption:=floattostrF(t[11,9],ffNumber,7,2);
+  if t[11,9]<-3 then Label59.font.color:=clRed;
+  Label68.caption:=floattostrF(t[12,9],ffNumber,7,2);
+  if t[12,9]<-3 then Label68.font.color:=clRed;
+
+  Label108.caption:=floattostrF(t[11,4],ffNumber,7,0);
+  Label109.caption:=floattostrF(t[12,4],ffNumber,7,0);
+
+  Label110.caption:=floattostrF(t[11,2],ffNumber,7,0);
+  Label111.caption:=floattostrF(t[12,2],ffNumber,7,0);
+  Label112.caption:=floattostrF(t[11,14],ffNumber,7,0);
+  Label121.caption:=floattostrF(t[11,15],ffNumber,7,0);
+  Label113.caption:=floattostrF(t[12,14],ffNumber,7,0);
+  Label122.caption:=floattostrF(t[12,15],ffNumber,7,0);
+
+  Label84.caption:=floattostrF(t[21,13],ffNumber,7,0);
+  Label85.caption:=floattostrF(t[22,13],ffNumber,7,0);
+  Label86.caption:=floattostrF(t[23,13],ffNumber,7,0);
+  Label87.caption:=floattostrF(t[24,13],ffNumber,7,0);
+  Label65.caption:=floattostrF(t[25,13],ffNumber,7,0);
+
+  Label98.caption:=floattostrF(t[41,2],ffNumber,7,0);
+  Label99.caption:=floattostrF(t[42,2],ffNumber,7,0);
+  Label100.caption:=floattostrF(t[43,2],ffNumber,7,0);
+  Label101.caption:=floattostrF(t[44,2],ffNumber,7,0);
+  Label102.caption:=floattostrF(t[45,2],ffNumber,7,0);
+
+  Label88.caption:=floattostrF(t[21,4],ffNumber,7,0);
+  Label89.caption:=floattostrF(t[22,4],ffNumber,7,0);
+  Label90.caption:=floattostrF(t[23,4],ffNumber,7,0);
+  Label91.caption:=floattostrF(t[24,4],ffNumber,7,0);
+  Label66.caption:=floattostrF(t[25,4],ffNumber,7,0);
+
+  Label128.caption:=floattostrF(t[21,5],ffNumber,7,2);
+  Label129.caption:=floattostrF(t[22,5],ffNumber,7,2);
+  Label130.caption:=floattostrF(t[23,5],ffNumber,7,2);
+  Label131.caption:=floattostrF(t[24,5],ffNumber,7,2);
+  Label132.caption:=floattostrF(t[25,5],ffNumber,7,2);
+
+
+  Label103.caption:=floattostrF(t[41,4],ffNumber,7,0);
+  Label104.caption:=floattostrF(t[42,4],ffNumber,7,0);
+  Label105.caption:=floattostrF(t[43,4],ffNumber,7,0);
+  Label106.caption:=floattostrF(t[44,4],ffNumber,7,0);
+  Label107.caption:=floattostrF(t[45,4],ffNumber,7,0);
+
+  Label133.caption:=floattostrF(t[41,5],ffNumber,7,2);
+  Label134.caption:=floattostrF(t[42,5],ffNumber,7,2);
+  Label135.caption:=floattostrF(t[43,5],ffNumber,7,2);
+  Label136.caption:=floattostrF(t[44,5],ffNumber,7,2);
+  Label137.caption:=floattostrF(t[45,5],ffNumber,7,2);
+
+
+  if t[21,5]>2.3 then Label128.font.color:=clRed;
+  if t[22,5]>2.3 then Label129.font.color:=clRed;
+  if t[23,5]>2.3 then Label130.font.color:=clRed;
+  if t[24,5]>2.3 then Label131.font.color:=clRed;
+  if t[25,5]>2.3 then Label132.font.color:=clRed;
+  if t[41,5]>2.3 then Label133.font.color:=clRed;
+  if t[41,5]>2.3 then Label134.font.color:=clRed;
+  if t[41,5]>2.3 then Label135.font.color:=clRed;
+  if t[41,5]>2.3 then Label136.font.color:=clRed;
+  if t[41,5]>2.3 then Label137.font.color:=clRed;
+  if t[11,14]>0 then Label112.font.color:=clRed;
+  if t[11,15]>0 then Label113.font.color:=clRed;
+  if t[12,14]>0 then Label121.font.color:=clRed;
+  if t[12,15]>0 then Label122.font.color:=clRed;
+}
+  for i:=1 to StringGrid2.RowCount do
+    begin
+      for j:= 1 to 3 do
+        begin
+          StringGrid2.Cells[j-1,i]:='';
+        end;
+    end;
+  StringGrid2.RowCount:=2;
+
+  ADOQuery1.close;
+  ADOQuery2.close;
+  ADOQuery3.close;
+  ADOQuery4.close;
+  ADOQuery5.close;
+  ADOQuery6.close;
+  ADOQuery7.close;
+  Button7.Click;
+  Button10.Click;
+  ProgressBar1.position:=0;
+end;
+
+procedure TForm1.Button7Click(Sender: TObject);
+begin
+  Label8.caption:='';
+  Label9.caption:='';
+  Label10.caption:='';
+  Label12.caption:='';
+  Label13.caption:='';
+  Label19.caption:='';
+  Label20.caption:='';
+  Label31.caption:='';
+  Label32.caption:='';
+  Label33.caption:='';
+  Label34.caption:='';
+  Label35.caption:='';
+  Label36.caption:='';
+  Label37.caption:='';  
+  Label38.caption:='';
+  Label39.caption:='';
+  Label40.caption:='';
+  Label41.caption:='';
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+  if Label31.visible=true then
+    begin
+      Label31.visible:=false;
+      Label32.visible:=false;
+      Label33.visible:=false;
+      Label34.visible:=false;
+      Label35.visible:=false;
+      Label36.visible:=false;
+      Label37.visible:=false;
+      Label38.visible:=false;
+      Label39.visible:=false;
+      Label40.visible:=false;
+      Label41.visible:=false;
+    end
+  else
+    begin
+      Label31.visible:=true;
+      Label32.visible:=true;
+      Label33.visible:=true;
+      Label34.visible:=true;
+      Label35.visible:=true;
+      Label36.visible:=true;
+      Label37.visible:=true;
+      Label38.visible:=true;      
+      Label39.visible:=true;
+      Label40.visible:=true;
+      Label41.visible:=true;
+    end;
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  Button7.click;
+end;
+
+procedure TForm1.Button9Click(Sender: TObject);
+VAR
+  asheet:variant;
+  i,j:INTEGER;
+begin
+  ExcelApplication1.Visible[0]:=true;
+  ExcelApplication1.Workbooks.Add(xlwbatworksheet,0);
+  asheet:= ExcelApplication1.Worksheets.Item[1];
+  FOR i := 0 to StringGrid3.RowCount do
+    begin
+      for j := 0 to StringGrid3.colCount  do
+        begin
+          asheet.cells[i+1,j+1].value:=StringGrid3.Cells[j,i];
+        end;
+    end;
+end;
+
+procedure TForm1.StringGrid1DrawCell(Sender: TObject; ACol, ARow: Integer;
+  Rect: TRect; State: TGridDrawState);
+//VAR
+//  arygrid: array[1..10,1..16] of TColor;
+begin
+//  if not (gdFixed in State) then
+//　  with StringGrid1(Sender).Canvas do
+//      begin
+//　      StringGrid1.Canvas.brush.Color:=clWindow;
+//　      StringGrid1.Canvas.FillRect(Rect);
+//　      if StringGrid1.Cells[ACol,ARow]='01' then
+//　　    Draw( (rect.right + rect.left - FCheck.width) div 2, (rect.bottom + rect.top - FCheck.height) div 2, FCheck )
+//　    else
+//　　    Draw( (rect.right + rect.left - FCheck.width) div 2, (rect.bottom + rect.top - FCheck.height) div 2, FNoCheck );
+//end;
+//   if Acol = 5 then Canvas.Font.Color:=clRed;
+//   if ARow = 5 then Canvas.Font.Color:=clGreen;
+//  StringGrid1.Canvas.Font.Color:=clred;
+//    (Sender as Tstringgrid).Canvas.Brush.Color := clInfoBk;
+//    (Sender as Tstringgrid).Canvas.Brush.Color := clred;
+//    arygrid[5,5]:=clRed;
+//  if ADOQuery9.fields[0].value<>ADOQuery9.fields[1].value then StringGrid1.Font.Color := clRed;
+//   if ADOQuery9.fields[0].value<>ADOQuery9.fields[1].value then (Sender as Tstringgrid).Canvas.Brush.Color := clred;
+//    Canvas.Font.Color:= arygrid[5,5];
+//    Canvas.FillRect(Rect);
+//    Canvas.TextOut(Rect.Left,Rect.Top,Cells[5,5]); //output text
+//  (Sender as Tstringgrid).Canvas.FillRect(Rect);
+//  if not((acol=1) and (arow>=stringgrid1.fixedrows)) then exit;
+//  with stringgrid1 do
+//    begin
+//　     StringGrid1.canvas.Brush.color:=clRed;
+//　     StringGrid1.canvas.FillRect(Rect);
+//　     StringGrid1.canvas.TextOut(rect.left+2,rect.top+2,cells[acol,arow])
+//    end;
+end;
+
+procedure TForm1.Button10Click(Sender: TObject);
+var
+  l,m:real;
+  i,j:integer;
+begin
+
+  l:=2.3;       // 2.3/1000
+  m:=-3;         // ploss> -3%
+
+  for i:=1 to 60 do                                                             //重算 cell 超領、power loss
+    begin
+      if t[i,3]>0 then t[i,5]:=t[i,4]/t[i,3]*1000;
+      if t[i,6]>0 then t[i,9]:=t[i,8]/t[i,6]*100;
+      if t[i,6]>0 then t[i,12]:=t[i,11]/t[i,6]*100;
+    end;
+    
+  StringGrid1.Cells[0,k+1]:='工單總計';
+
+  for i:= 1 to 4 do
+    begin
+      StringGrid1.Cells[i,k+1]:=floattostrF(t[1,i],ffNumber,7,0);
+    end;
+  for i:= 5 to 12 do
+    begin
+      StringGrid1.Cells[i,k+1]:=floattostrF(t[1,i],ffNumber,7,2);
+    end;
+  for i:= 13 to 20 do
+    begin
+      StringGrid1.Cells[i+3,k+1]:=floattostrF(t[1,i],ffNumber,7,0);
+    end;
+
+  Label112.font.color:=clWindowText;
+  Label113.font.color:=clWindowText;
+  Label121.font.color:=clWindowText;
+  Label122.font.color:=clWindowText;
+  Label68.font.color:=clWindowText;
+  Label59.font.color:=clWindowText;
+  Label61.font.color:=clWindowText;
+  Label57.font.color:=clWindowText;
+  Label49.font.color:=clWindowText;
+  Label48.font.color:=clWindowText;
+  Label128.font.color:=clWindowText;
+  Label129.font.color:=clWindowText;
+  Label130.font.color:=clWindowText;
+  Label131.font.color:=clWindowText;
+  Label132.font.color:=clWindowText;
+  Label133.font.color:=clWindowText;
+  Label134.font.color:=clWindowText;
+  Label135.font.color:=clWindowText;
+  Label136.font.color:=clWindowText;
+  Label137.font.color:=clWindowText;
+
+  Label47.caption:=floattostrF(t[1,2],ffNumber,7,0);
+  Label118.caption:=floattostrF(t[1,4],ffNumber,7,0);
+  Label48.caption:=floattostrF(t[1,5],ffNumber,7,2);
+  Label71.caption:=floattostrF(t[1,6],ffNumber,7,0);
+  Label73.caption:=floattostrF(t[1,7],ffNumber,7,0);
+  Label49.caption:=floattostrF(t[1,9],ffNumber,7,2);
+  Label116.caption:=floattostrF(t[1,13],ffNumber,7,0);
+
+  Label110.caption:=floattostrF(t[11,2],ffNumber,7,0);
+  Label108.caption:=floattostrF(t[11,4],ffNumber,7,0);
+  Label57.caption:=floattostrF(t[11,5],ffNumber,7,2);
+  Label59.caption:=floattostrF(t[11,9],ffNumber,7,2);
+  Label112.caption:=floattostrF(t[11,14],ffNumber,7,0);
+  Label121.caption:=floattostrF(t[11,15],ffNumber,7,0);
+
+  Label111.caption:=floattostrF(t[12,2],ffNumber,7,0);
+  Label109.caption:=floattostrF(t[12,4],ffNumber,7,0);
+  Label61.caption:=floattostrF(t[12,5],ffNumber,7,2);
+  Label68.caption:=floattostrF(t[12,9],ffNumber,7,2);
+  Label113.caption:=floattostrF(t[12,14],ffNumber,7,0);
+  Label122.caption:=floattostrF(t[12,15],ffNumber,7,0);
+
+  Label84.caption:=floattostrF(t[21,13],ffNumber,7,0);
+  Label85.caption:=floattostrF(t[22,13],ffNumber,7,0);
+  Label86.caption:=floattostrF(t[23,13],ffNumber,7,0);
+  Label87.caption:=floattostrF(t[24,13],ffNumber,7,0);
+  Label65.caption:=floattostrF(t[25,13],ffNumber,7,0);
+
+  Label88.caption:=floattostrF(t[21,4],ffNumber,7,0);
+  Label89.caption:=floattostrF(t[22,4],ffNumber,7,0);
+  Label90.caption:=floattostrF(t[23,4],ffNumber,7,0);
+  Label91.caption:=floattostrF(t[24,4],ffNumber,7,0);
+  Label66.caption:=floattostrF(t[25,4],ffNumber,7,0);
+
+  Label128.caption:=floattostrF(t[21,5],ffNumber,7,2);
+  Label129.caption:=floattostrF(t[22,5],ffNumber,7,2);
+  Label130.caption:=floattostrF(t[23,5],ffNumber,7,2);
+  Label131.caption:=floattostrF(t[24,5],ffNumber,7,2);
+  Label132.caption:=floattostrF(t[25,5],ffNumber,7,2);
+
+  Label98.caption:=floattostrF(t[41,2],ffNumber,7,0);
+  Label99.caption:=floattostrF(t[42,2],ffNumber,7,0);
+  Label100.caption:=floattostrF(t[43,2],ffNumber,7,0);
+  Label101.caption:=floattostrF(t[44,2],ffNumber,7,0);
+  Label102.caption:=floattostrF(t[45,2],ffNumber,7,0);
+  Label103.caption:=floattostrF(t[41,4],ffNumber,7,0);
+  Label104.caption:=floattostrF(t[42,4],ffNumber,7,0);
+  Label105.caption:=floattostrF(t[43,4],ffNumber,7,0);
+  Label106.caption:=floattostrF(t[44,4],ffNumber,7,0);
+  Label107.caption:=floattostrF(t[45,4],ffNumber,7,0);
+  Label133.caption:=floattostrF(t[41,5],ffNumber,7,2);
+  Label134.caption:=floattostrF(t[42,5],ffNumber,7,2);
+  Label135.caption:=floattostrF(t[43,5],ffNumber,7,2);
+  Label136.caption:=floattostrF(t[44,5],ffNumber,7,2);
+  Label137.caption:=floattostrF(t[45,5],ffNumber,7,2);
+
+  if t[1,5]>l then Label48.font.color:=clRed;
+  if t[1,9]<m then Label49.font.color:=clRed;
+
+  if t[11,5]>l then Label57.font.color:=clRed;
+  if t[11,9]<m then Label59.font.color:=clRed;
+  if t[11,14]>0 then Label112.font.color:=clRed;
+  if t[11,15]>0 then Label121.font.color:=clRed;
+
+  if t[12,5]>l then Label61.font.color:=clRed;
+  if t[12,9]<m then Label68.font.color:=clRed;
+  if t[12,14]>0 then Label113.font.color:=clRed;
+  if t[12,15]>0 then Label122.font.color:=clRed;
+
+  if t[21,5]>l then Label128.font.color:=clRed;
+  if t[22,5]>l then Label129.font.color:=clRed;
+  if t[23,5]>l then Label130.font.color:=clRed;
+  if t[24,5]>l then Label131.font.color:=clRed;
+  if t[25,5]>l then Label132.font.color:=clRed;
+  if t[41,5]>l then Label133.font.color:=clRed;
+  if t[42,5]>l then Label134.font.color:=clRed;
+  if t[43,5]>l then Label135.font.color:=clRed;
+  if t[44,5]>l then Label136.font.color:=clRed;
+  if t[45,5]>l then Label137.font.color:=clRed;
+{
+  StringGrid3.RowCount:=20;
+
+  StringGrid3.Cells[1,0]:='工單模組數';
+  StringGrid3.Cells[2,0]:='入庫模組數';
+  StringGrid3.Cells[3,0]:='需領CELL片數';
+  StringGrid3.Cells[4,0]:='超領CELL片數';
+  StringGrid3.Cells[5,0]:='1/1000';
+  StringGrid3.Cells[6,0]:='領料瓦數';
+  StringGrid3.Cells[7,0]:='入庫瓦數';
+  StringGrid3.Cells[8,0]:='入庫-領料瓦數';
+  StringGrid3.Cells[9,0]:='功率損失(%)';
+  StringGrid3.Cells[10,0]:='電測瓦數';
+  StringGrid3.Cells[11,0]:='電測-領料瓦數';
+  StringGrid3.Cells[12,0]:='功率損失(%)';
+  StringGrid3.Cells[13,0]:='已領片數';
+  StringGrid3.Cells[14,0]:='不良數';
+  StringGrid3.Cells[15,0]:='報廢數';
+  StringGrid3.Cells[16,0]:='220W片數';
+  StringGrid3.Cells[17,0]:='225W片數';
+  StringGrid3.Cells[18,0]:='230W片數';
+  StringGrid3.Cells[19,0]:='235W片數';
+  StringGrid3.Cells[20,0]:='240W片數';
+
+  StringGrid3.Cells[0,1]:='總計';
+  StringGrid3.Cells[0,3]:='1線工單總計';
+  StringGrid3.Cells[0,4]:='2線工單總計';
+  StringGrid3.Cells[0,6]:='Gintech總計';
+  StringGrid3.Cells[0,7]:='tainergy總計';
+  StringGrid3.Cells[0,8]:='Neosolar總計';
+  StringGrid3.Cells[0,9]:='Mosel總計';
+//  StringGrid3.Cells[0,5]:='長生總計';
+  StringGrid3.Cells[0,10]:='Solartech總計';
+//  StringGrid3.Cells[0,12]:='DelSolar總計';
+//  StringGrid3.Cells[0,13]:='Q-Cell總計';
+//  StringGrid3.Cells[0,14]:='TEG總計';
+//  StringGrid3.Cells[0,15]:='Unitech總計';
+  StringGrid3.Cells[0,12]:='220W總計';
+  StringGrid3.Cells[0,13]:='225W總計';
+  StringGrid3.Cells[0,14]:='230W總計';
+  StringGrid3.Cells[0,15]:='235W總計';
+  StringGrid3.Cells[0,16]:='240W總計';
+
+  for i:= 1 to 4 do
+    begin
+      StringGrid3.Cells[i,1]:=floattostrF(t[1,i],ffNumber,7,0);
+      StringGrid3.Cells[i,3]:=floattostrF(t[11,i],ffNumber,7,0);
+      StringGrid3.Cells[i,4]:=floattostrF(t[12,i],ffNumber,7,0);
+      for j:=1 to 5 do
+        begin
+          if t[j+20,i]<>0 then StringGrid3.Cells[i,j+5]:=floattostrF(t[j+20,i],ffNumber,7,0);
+          if t[j+40,i]<>0 then StringGrid3.Cells[i,j+11]:=floattostrF(t[j+40,i],ffNumber,7,0);
+        end;
+    end;
+
+  for i:= 5 to 12 do
+    begin
+      StringGrid3.Cells[i,1]:=floattostrF(t[1,i],ffNumber,7,2);
+
+      StringGrid3.Cells[i,3]:=floattostrF(t[11,i],ffNumber,7,2);
+      StringGrid3.Cells[i,4]:=floattostrF(t[12,i],ffNumber,7,2);
+      for j:=1 to 5 do
+        begin
+          if t[j+20,i]<>0 then StringGrid3.Cells[i,j+5]:=floattostrF(t[j+20,i],ffNumber,7,2);
+          if t[j+40,i]<>0 then StringGrid3.Cells[i,j+11]:=floattostrF(t[j+40,i],ffNumber,7,2);
+        end;
+    end;
+
+  for i:= 13 to 20 do
+    begin
+      StringGrid3.Cells[i,1]:=floattostrF(t[1,i],ffNumber,7,0);
+
+      if t[11,i]<>0 then StringGrid3.Cells[i,3]:=floattostrF(t[11,i],ffNumber,7,0);
+      if t[12,i]<>0 then StringGrid3.Cells[i,4]:=floattostrF(t[12,i],ffNumber,7,0);
+      for j:=1 to 5 do
+        begin
+          if t[j+20,i]<>0 then StringGrid3.Cells[i,j+5]:=floattostrF(t[j+20,i],ffNumber,7,0);
+          if t[j+40,i]<>0 then StringGrid3.Cells[i,j+11]:=floattostrF(t[j+40,i],ffNumber,7,0);
+        end;
+    end;
+}
+end;
+
+end.
